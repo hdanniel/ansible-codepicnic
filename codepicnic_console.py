@@ -13,13 +13,14 @@ def main():
             access_token = dict(required=True),
             size = dict(required=True),
             type = dict(required=True),
-            name = dict(default=''),
+            hostname = dict(default=''),
+            title = dict(default=''),
             custom_image = dict(default=''),
             api_url = dict (default='https://codepicnic.com/api/consoles')
         )
     )
     cp_headers = {'Authorization': 'Bearer ' + module.params['access_token'], 'content-type': 'application/json'}
-    cp_bite ={"bite":{"container_size":module.params['size'], "container_type":module.params['type'], "hostname":module.params['name']}}
+    cp_bite ={"bite":{"container_size":module.params['size'], "container_type":module.params['type'], "hostname":module.params['hostname'], "title":module.params['title']}}
     try: 
         cp_token_response = requests.post(module.params['api_url'], data=json.dumps(cp_bite), headers=cp_headers)
     except requests.exceptions.ConnectionError as e:
