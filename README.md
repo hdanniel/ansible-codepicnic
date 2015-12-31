@@ -9,7 +9,7 @@ Create a new CodePicnic console
 
 ## Playbook example
 
-- name: CodePicnic consoles
+> - name: CodePicnic consoles
   hosts: localhost
   tasks:
   	- name: Gather CodePicnic facts
