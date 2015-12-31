@@ -45,10 +45,6 @@ EXAMPLES = '''
 - action: codepicnic_console title='MY NEW CONSOLE NAME' access_token="{{ codepicnic_access_token }}" size='medium' type='python' hostname='MY_NEW_CONSOLE'
 '''
 
-    "container_name": "ed226e20ea6057ba8e0070f5454e5699d780f11c751b0b279c1ec44224665a93", 
-        "url": "https://codepicnic.com/consoles/nombre-de-2/embed"
-
-
 RETURN = '''
 container_name:
     description: an unique identifier associated with your console, 
