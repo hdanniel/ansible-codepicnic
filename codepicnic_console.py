@@ -1,5 +1,67 @@
 #!/usr/bin/python
 
+DOCUMENTATION = '''
+module: codepicnic_console
+short_description: Create new CodePicnic consoles 
+description:
+    - This module creates new consoles using the CodePicnic API as per https://codepicnic.com/docs/api .
+      The module returns the URL of the new console
+version_added: "0.1"
+author: "Hector Paz, @hdanniel"
+notes:
+    - Before create a console you need to get a valid CodePicnic token. 
+    - Only paid accounts have access to the CodePicnic API 
+options:
+    title:
+        description:
+            - Name of the new Console
+        alias: name 
+        required: false 
+        default: null 
+    access_token:
+        description:
+            - CodePicnic Token generated using the module codepicnic_facts
+        required: true
+        default: null 
+    size:
+        description:
+            - Container size from the following options: medium (256 MB), large (512 MB), xlarge (1 GB) or xxlarge (3 GB) 
+        required: true 
+        default: medium
+    type:
+        description:
+            - Container type from the following options: bash, js, mono, elixir, go, nodejs, php, python, python340, python350, ruby, dancer, laravel, phoenix, rails, mongodb, redis 
+        required: true 
+        default: bash 
+    hostname:
+        description:
+            - Name to be used as console hostname: user@your_custom_hostname 
+        required: false 
+        default: null 
+
+'''
+
+EXAMPLES = '''
+- action: codepicnic_console title='MY NEW CONSOLE NAME' access_token="{{ codepicnic_access_token }}" size='medium' type='python' hostname='MY_NEW_CONSOLE'
+'''
+
+    "container_name": "ed226e20ea6057ba8e0070f5454e5699d780f11c751b0b279c1ec44224665a93", 
+        "url": "https://codepicnic.com/consoles/nombre-de-2/embed"
+
+
+RETURN = '''
+container_name:
+    description: an unique identifier associated with your console, 
+    type: string
+    sample: "7fed342e2f2999fa6802c31af340dcc9e33dedafc994cfbeadf3365927700ca6"
+url:
+    description: url of the new console 
+    returned: changed
+    type: string
+    sample: "http://codepicnic.com/consoles/MTU4NzM4/embed"
+'''
+
+
 import json
 import requests
 import requests.packages.urllib3

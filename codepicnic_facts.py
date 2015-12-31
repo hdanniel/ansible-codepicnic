@@ -28,21 +28,11 @@ EXAMPLES = '''
 '''
 
 RETURN = '''
-dest:
-    description: destination file/path
+codepicnic_access_token:
+    description: generated token to be used in following actions 
     returned: success
     type: string
-    sample: "/path/to/file.txt"
-src:
-    description: source file used for the copy on the target machine
-    returned: changed
-    type: string
-    sample: "/home/httpd/.ansible/tmp/ansible-tmp-1423796390.97-147729857856000/source"
-md5sum:
-    description: md5 checksum of the file after running copy
-    returned: when supported
-    type: string
-    sample: "2a5aeecc61dc98c4d780b14b330e3282"
+    sample: "c12ab983a9d15eb7c522eacf01c164ad04f25c74ba54024f2639a6f88e91c935"
 '''
 
 import json
