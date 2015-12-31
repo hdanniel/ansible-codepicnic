@@ -7,7 +7,7 @@ Generate the authentication token using the application credentials
 ## codepicnic_console
 Create a new CodePicnic console
 
-## Example
+## Playbook example
 
 - name: CodePicnic consoles
   hosts: localhost
