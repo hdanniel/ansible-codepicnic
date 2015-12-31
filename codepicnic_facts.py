@@ -1,4 +1,49 @@
 #!/usr/bin/python
+DOCUMENTATION = '''
+module: codepicnic_facts 
+short_description: Gathers facts about CodePicnic account 
+description:
+    - This module fetches data from the CodePicnic API as per https://codepicnic.com/docs/api .
+      The module returns the generated token from your CodePicnic credentials.
+version_added: "0.1"
+author: "Hector Paz, @hdanniel"
+notes:
+    - Only paid accounts have access to the CodePicnic API 
+options:
+    client_id:
+        description:
+            - Application ID from your CodePicnic account 
+        required: true
+        default: null 
+    client_secret:
+        description:
+            - Secret Key from your CodePicnic account 
+        required: true
+        default: null 
+
+'''
+
+EXAMPLES = '''
+- action: codepicnic_facts client_id=YOUR_CODEPICNIC_APPLICATION_ID client_secret=YOUR_CODEPICNIC_SECRET_KEY 
+'''
+
+RETURN = '''
+dest:
+    description: destination file/path
+    returned: success
+    type: string
+    sample: "/path/to/file.txt"
+src:
+    description: source file used for the copy on the target machine
+    returned: changed
+    type: string
+    sample: "/home/httpd/.ansible/tmp/ansible-tmp-1423796390.97-147729857856000/source"
+md5sum:
+    description: md5 checksum of the file after running copy
+    returned: when supported
+    type: string
+    sample: "2a5aeecc61dc98c4d780b14b330e3282"
+'''
 
 import json
 import requests
