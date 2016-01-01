@@ -37,9 +37,9 @@ codepicnic_access_token:
 
 import json
 import requests
-import requests.packages.urllib3
+#import requests.packages.urllib3
 
-requests.packages.urllib3.disable_warnings()
+#requests.packages.urllib3.disable_warnings()
 
 def main():
     module = AnsibleModule(
