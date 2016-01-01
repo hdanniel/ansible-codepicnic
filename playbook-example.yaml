@@ -1,0 +1,13 @@
+    - name: CodePicnic consoles
+      hosts: localhost
+      tasks:
+      - name: Gather CodePicnic facts
+        codepicnic_facts:
+            client_id=XXXXXXXXXXXXXXXXXXXXXXX 
+            client_secret=YYYYYYYYYYYYYYYYYYYYYYYYYYYY
+      - name: Create CodePicnic console
+        codepicnic_console:
+            access_token="{{ codepicnic_access_token }}"
+            size="medium"
+            type="python"
+            title="my ansible console"
