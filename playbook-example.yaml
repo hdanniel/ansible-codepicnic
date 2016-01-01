@@ -11,3 +11,7 @@
             size="medium"
             type="python"
             title="my ansible console"
+        register: result_codepicnic_console
+      - name: Show URL of the new console
+        debug: var=result_codepicnic_console.url
+
