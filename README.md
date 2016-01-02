@@ -25,7 +25,8 @@ Create a new CodePicnic console
 
 You can try the modules with our [Demo CodePicnic console](https://codepicnic.com/consoles/my-ansible-console-2-1451740901/embed) :
 - Open the console
-- Enter your credentials into the file ansible-codepicnic/playbook-example.yaml
+- Enter your credentials into the file **ansible-codepicnic/playbook-example.yaml**
 - Execute the following command:
+
 
      ansible-playbook ansible-codepicnic/playbook-example.yaml -M ansible-codepicnic/ -i ansible-codepicnic/hosts-example 
