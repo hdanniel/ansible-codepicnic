@@ -22,4 +22,5 @@ Create a new CodePicnic console
             size="medium"
             type="python"
             title="my ansible console"
-         
+
+You can try the modules with our [Demo CodePicnic console](https://codepicnic.com/consoles/my-ansible-console-2-1451740901/embed)
