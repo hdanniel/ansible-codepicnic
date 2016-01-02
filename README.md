@@ -28,6 +28,4 @@ You can try the modules with our [Demo CodePicnic console](https://codepicnic.co
 - Enter your credentials into the file ansible-codepicnic/playbook-example.yaml
 - Execute the following command:
 
-    ansible-playbook ansible-codepicnic/playbook-example.yaml -M ansible-codepicnic/ -i ansible-codepicnic/hosts-example 
-
-
+     ansible-playbook ansible-codepicnic/playbook-example.yaml -M ansible-codepicnic/ -i ansible-codepicnic/hosts-example 
