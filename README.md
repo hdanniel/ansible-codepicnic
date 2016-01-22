@@ -7,6 +7,9 @@ Generate the authentication token using the application credentials
 ## codepicnic_console
 Create a new CodePicnic console
 
+## codepicnic_command
+Execute commands in a CodePicnic console
+
 ## Playbook example
 
     - name: CodePicnic consoles
