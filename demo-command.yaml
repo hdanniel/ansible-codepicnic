@@ -1,0 +1,34 @@
+    - name: CodePicnic consoles
+      hosts: localhost
+      tasks:
+      - name: Gather CodePicnic facts
+        codepicnic_facts:
+            client_id=f6a67f7306211a947ce7f061284c7e0474f84c5044f1968b92d532011293ea67
+            client_secret=e15414ab5f0e3dc299c3e5e1fce1abe6768a8de1ea593e1bde5145839ff6b8fd
+      - name: Create CodePicnic console
+        codepicnic_console:
+            access_token="{{ codepicnic_access_token }}"
+            size="medium"
+            type="python"
+            title="Ansible2"
+        register: result_codepicnic_console
+      - name: Show URL of the new console
+        debug: var=result_codepicnic_console.url
+      - name:  Get Ansible Code 
+        codepicnic_command: 
+            access_token="{{ codepicnic_access_token }}"
+            container_name="{{ result_codepicnic_console.container_name }}"
+            command="cd /tmp; git clone git://github.com/ansible/ansible.git --recursive"
+        register: result_codepicnic_command
+      - name: Show URL of the new console
+        debug: var=result_codepicnic_command
+      - name: Connect to branch v2_final 
+        codepicnic_command: 
+            access_token="{{ codepicnic_access_token }}"
+            container_name="{{ result_codepicnic_console.container_name }}"
+            command="cd /tmp/ansible; git fetch origin; git checkout -b v2_final --track origin/v2_final"
+      - name:  Install Ansible 2
+        codepicnic_command: 
+            access_token="{{ codepicnic_access_token }}"
+            container_name="{{ result_codepicnic_console.container_name }}"
+            command="cd /tmp/ansible; python setup.py install"
